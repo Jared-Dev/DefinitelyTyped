@@ -1,15 +1,10 @@
-// Type definitions for node-turn 0.0
-// Project: https://github.com/Atlantis-Software/node-turn#readme
-// Definitions by: Johannes Garz <https://github.com/garzj>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
-type TurnDebugLevel = 'OFF' | 'FATAL' | 'ERROR' | 'WARN' | 'INFO' | 'DEBUG' | 'TRACE' | 'ALL';
+type TurnDebugLevel = "OFF" | "FATAL" | "ERROR" | "WARN" | "INFO" | "DEBUG" | "TRACE" | "ALL";
 
-type TurnAuthMech = 'none' | 'short-term' | 'long-term';
+type TurnAuthMech = "none" | "short-term" | "long-term";
 
 interface TurnCredentials {
     [user: string]: string;
@@ -36,9 +31,9 @@ interface TurnOptions extends Partial<TurnProps> {
     credentials?: TurnCredentials;
 }
 
-interface Turn extends Readonly<TurnProps> {}
+interface TurnServer extends Readonly<TurnProps> {}
 
-declare class Turn extends EventEmitter {
+declare class TurnServer extends EventEmitter {
     constructor(options?: TurnOptions);
 
     start(): void;
@@ -51,4 +46,8 @@ declare class Turn extends EventEmitter {
     readonly staticCredentials: TurnCredentials;
 }
 
-export = Turn;
+declare namespace TurnServer {
+    export { TurnAuthMech, TurnCredentials, TurnDebugLevel, TurnOptions, TurnProps };
+}
+
+export = TurnServer;

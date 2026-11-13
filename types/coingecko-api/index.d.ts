@@ -1,114 +1,109 @@
-// Type definitions for coingecko-api 1.0
-// Project: https://github.com/miscavage/CoinGecko-API#readme
-// Definitions by: Jan Klimo <https://github.com/janklimo>, Artem Ilinykh <https://github.com/singlesly>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-
 type Locale =
-    | 'ar'
-    | 'de'
-    | 'en'
-    | 'es'
-    | 'fr'
-    | 'hu'
-    | 'id'
-    | 'it'
-    | 'ja'
-    | 'ko'
-    | 'nl'
-    | 'pl'
-    | 'pt'
-    | 'ro'
-    | 'ru'
-    | 'sv'
-    | 'th'
-    | 'tr'
-    | 'vi'
-    | 'zh'
-    | 'zh-tw';
+    | "ar"
+    | "de"
+    | "en"
+    | "es"
+    | "fr"
+    | "hu"
+    | "id"
+    | "it"
+    | "ja"
+    | "ko"
+    | "nl"
+    | "pl"
+    | "pt"
+    | "ro"
+    | "ru"
+    | "sv"
+    | "th"
+    | "tr"
+    | "vi"
+    | "zh"
+    | "zh-tw";
 
 type Localization = Record<Locale, string>;
 
 type Currency =
-    | 'aed'
-    | 'ars'
-    | 'aud'
-    | 'bch'
-    | 'bdt'
-    | 'bhd'
-    | 'bmd'
-    | 'bnb'
-    | 'brl'
-    | 'btc'
-    | 'cad'
-    | 'chf'
-    | 'clp'
-    | 'cny'
-    | 'czk'
-    | 'dkk'
-    | 'eos'
-    | 'eth'
-    | 'eur'
-    | 'gbp'
-    | 'hkd'
-    | 'huf'
-    | 'idr'
-    | 'ils'
-    | 'inr'
-    | 'jpy'
-    | 'krw'
-    | 'kwd'
-    | 'lkr'
-    | 'ltc'
-    | 'mmk'
-    | 'mxn'
-    | 'myr'
-    | 'ngn'
-    | 'nok'
-    | 'nzd'
-    | 'php'
-    | 'pkr'
-    | 'pln'
-    | 'rub'
-    | 'sar'
-    | 'sek'
-    | 'sgd'
-    | 'thb'
-    | 'try'
-    | 'twd'
-    | 'uah'
-    | 'usd'
-    | 'vef'
-    | 'vnd'
-    | 'xag'
-    | 'xau'
-    | 'xdr'
-    | 'xlm'
-    | 'xrp'
-    | 'zar'
-    | 'bits'
-    | 'link'
-    | 'sats';
+    | "aed"
+    | "ars"
+    | "aud"
+    | "bch"
+    | "bdt"
+    | "bhd"
+    | "bmd"
+    | "bnb"
+    | "brl"
+    | "btc"
+    | "cad"
+    | "chf"
+    | "clp"
+    | "cny"
+    | "czk"
+    | "dkk"
+    | "eos"
+    | "eth"
+    | "eur"
+    | "gbp"
+    | "hkd"
+    | "huf"
+    | "idr"
+    | "ils"
+    | "inr"
+    | "jpy"
+    | "krw"
+    | "kwd"
+    | "lkr"
+    | "ltc"
+    | "mmk"
+    | "mxn"
+    | "myr"
+    | "ngn"
+    | "nok"
+    | "nzd"
+    | "php"
+    | "pkr"
+    | "pln"
+    | "rub"
+    | "sar"
+    | "sek"
+    | "sgd"
+    | "thb"
+    | "try"
+    | "twd"
+    | "uah"
+    | "usd"
+    | "vef"
+    | "vnd"
+    | "xag"
+    | "xau"
+    | "xdr"
+    | "xlm"
+    | "xrp"
+    | "zar"
+    | "bits"
+    | "link"
+    | "sats";
 
 type Order =
-    | 'gecko_asc'
-    | 'gecko_desc'
-    | 'market_cap_asc'
-    | 'market_cap_desc'
-    | 'volume_asc'
-    | 'volume_desc'
-    | 'coin_name_asc'
-    | 'coin_name_desc'
-    | 'price_asc'
-    | 'price_desc'
-    | 'h24_change_asc'
-    | 'h24_change_desc'
-    | 'trust_score_desc'
-    | 'name_asc'
-    | 'name_desc'
-    | 'open_interest_btc_asc'
-    | 'open_interest_btc_desc'
-    | 'trade_volume_24h_btc_asc'
-    | 'trade_volume_24h_btc_desc';
+    | "gecko_asc"
+    | "gecko_desc"
+    | "market_cap_asc"
+    | "market_cap_desc"
+    | "volume_asc"
+    | "volume_desc"
+    | "coin_name_asc"
+    | "coin_name_desc"
+    | "price_asc"
+    | "price_desc"
+    | "h24_change_asc"
+    | "h24_change_desc"
+    | "trust_score_desc"
+    | "name_asc"
+    | "name_desc"
+    | "open_interest_btc_asc"
+    | "open_interest_btc_desc"
+    | "trade_volume_24h_btc_asc"
+    | "trade_volume_24h_btc_desc";
 
 interface Response<T = any> {
     /**
@@ -158,6 +153,21 @@ interface CoinsAllParams {
      */
     // tslint:disable-next-line no-redundant-undefined
     sparkline?: boolean | undefined;
+}
+
+interface CoinsFetchMarketChartParams {
+    /**
+     * The target currency of market data (usd, eur, jpy, etc.)
+     */
+    vs_currency: string;
+    /**
+     * Data up to number of days ago (eg. 1, 14, 30, max)
+     */
+    days: string;
+    /**
+     * Data interval. Possible value: daily
+     */
+    interval?: string;
 }
 
 interface CoinsFetchMarketChartRangeParams {
@@ -222,6 +232,12 @@ interface CoinsFetchHistoryData {
         commit_count_4_weeks: number;
     };
     public_interest_stats: { alexa_rank: number; bing_matches: null };
+}
+
+interface CoinsFetchMarketChart {
+    market_caps: number[][];
+    prices: number[][];
+    total_volumes: number[][];
 }
 
 interface CoinsFetchParams {
@@ -291,6 +307,16 @@ interface CoinsFetchData {
         current_price: Record<Currency & string, number>;
         market_cap: Record<Currency & string, number>;
         total_volume: Record<Currency & string, number>;
+        fully_diluted_valuation: Record<Currency & string, number>;
+        total_value_locked: {
+            btc: number;
+            usd: number;
+        };
+        fdv_to_tvl_ratio: number;
+        mcap_to_tvl_ratio: number;
+        circulating_supply: number;
+        total_supply: number;
+        max_supply: number;
     };
     community_data: {
         facebook_likes: null | number;
@@ -313,7 +339,89 @@ interface CoinsFetchData {
     };
     public_interest_stats: { alexa_rank: number; bing_matches: null };
     last_updated: string;
+    tickers: CoinsFetchDataTicker[];
+}
+
+type TrustScore = "green" | "yellow" | "red";
+
+interface CoinsFetchDataTicker {
+    base: string;
+    target: string;
+    market: {
+        name: string;
+        identifier: string;
+        has_trading_incentive: boolean;
+    };
+    last: number;
+    volume: number;
+    converted_last: {
+        btc: number;
+        eth: number;
+        usd: number;
+    };
+    converted_volume: {
+        btc: number;
+        eth: number;
+        usd: number;
+    };
+    trust_score: TrustScore;
+    bid_ask_spread_percentage: number;
+    timestamp: Date;
+    last_traded_at: Date;
+    last_fetch_at: Date;
+    is_anomaly: boolean;
+    is_stale: boolean;
+    trade_url: string | null;
+    token_info_url: string | null;
+    coin_id: string;
+    target_coin_id: string;
+}
+
+/**
+ * Exchanges
+ */
+interface ExchangesAllParams {
+    /**
+     * Total results per page
+     * [default: 100]
+     */
+    // tslint:disable-next-line no-redundant-undefined
+    per_page?: number | undefined;
+    /**
+     * Page through results
+     */
+    // tslint:disable-next-line no-redundant-undefined
+    page?: number | undefined;
+}
+
+interface Exchange {
+    id: string;
+    name: string;
+    year_established: number;
+    country: string;
+    description: string;
+    url: string;
+    image: string;
+    has_trading_incentive: boolean;
+    trust_score: number;
+    trust_score_rank: number;
+    trade_volume_24h_btc: number;
+    trade_volume_24h_btc_normalized: number;
+}
+
+interface ExchangesFetchData extends Exchange {
+    facebook_url: string;
+    reddit_url: string;
+    telegram_url: string;
+    slack_url: string;
+    other_url_1: string;
+    other_url_2: string;
+    twitter_handle: string;
+    centralized: boolean;
+    public_notice: string;
+    alert_notice: string;
     tickers: [];
+    status_updates: [];
 }
 
 /**
@@ -333,6 +441,11 @@ interface SimplePriceParams {
      */
     // tslint:disable-next-line no-redundant-undefined
     include_24hr_vol?: boolean | undefined;
+    /**
+     * To include 24hr_change of price.
+     */
+    // tslint:disable-next-line no-redundant-undefined
+    include_24hr_change?: boolean | undefined;
     /**
      * To include last_updated_at of price.
      */
@@ -368,6 +481,13 @@ declare class CoinGecko {
         fetchMarketChartRange(coinId: string, params: CoinsFetchMarketChartRangeParams): Promise<Response>;
 
         /**
+         * Get historical market data include price, market cap, and 24h volume (granularity auto).
+         * @param coinId - The coin id (can be obtained from coins.list()) eg. bitcoin.
+         * @param params - Parameters to pass through to the request.
+         */
+        fetchMarketChart(coinId: string, params: CoinsFetchMarketChartParams): Promise<Response<CoinsFetchMarketChart>>;
+
+        /**
          * List all coins with data (name, price, market, developer, community, etc) - paginated by 50
          * @param params - Parameters to pass through to the request
          */
@@ -375,14 +495,14 @@ declare class CoinGecko {
 
         /**
          * Get historical data (name, price, market, stats) at a given date for a coin
-         * @param coinId - (Required) The coin id (can be obtained from coins.list()) eg. bitcoin
+         * @param coinId - (Required) The coin id (can be obtained from coins.all()) eg. bitcoin
          * @param params - Parameters to pass through to the request
          */
         fetchHistory(coinId: string, params: CoinsFetchHistoryParams): Promise<Response<CoinsFetchHistoryData>>;
 
         /**
          * Get current data (name, price, market, … including exchange tickers) for a coin.
-         * @param coinId - (Required) The coin id (can be obtained from coins.list()) eg. bitcoin
+         * @param coinId - (Required) The coin id (can be obtained from coins.all()) eg. bitcoin
          * @param params - Parameters to pass through to the request
          */
         fetch(coinId: string, params: CoinsFetchParams): Promise<Response<CoinsFetchData>>;
@@ -394,6 +514,20 @@ declare class CoinGecko {
          * @param params - Parameters to pass through to the request
          */
         price(params: SimplePriceParams): Promise<Response>;
+    };
+
+    exchanges: {
+        /**
+         * List all exchanges
+         * @param params - Parameters to pass through to the request
+         */
+        all(params?: ExchangesAllParams): Promise<Response<Exchange[]>>;
+
+        /**
+         * Get exchange volume in BTC and tickers
+         * @param exchangeId - (Required) The exchange id (can be obtained from exchanges.all()) eg. ripio
+         */
+        fetch(exchangeId: string): Promise<Response<ExchangesFetchData>>;
     };
 }
 
